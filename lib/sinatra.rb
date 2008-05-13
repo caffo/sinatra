@@ -1148,7 +1148,7 @@ end
 
 def configures(*envs, &b)
   yield if  !Sinatra.application.reloading && 
-            (envs.include?(Sinatra.application.options.env) ||
+            (envs.include?(Sinatra.application.options.env.to_sym) ||
             envs.empty?)
 end
 alias :configure :configures
